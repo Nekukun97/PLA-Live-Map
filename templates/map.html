@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:regular">
     <style>
@@ -79,108 +79,108 @@
                     PLA-Live-Map
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1><br>
-                <button onclick="window.location.href='../'">Pick Another Map</button><br>
-                <button onclick=updatePositions()>Update Active Spawns</button><br>
-                <button onclick=checkNearShinies()>Check Near Filtered</button><br>
-                <button onclick=trackPlayer() id="trackPlayerButton">Track Player Position</button><br>
-                <button onclick=placeTeleport() id="placeTeleportButton">Teleport</button><br>
-                <label for="y">Teleport Height:</label>
+                <button onclick="window.location.href='../'">Elegir otro Mapa</button><br>
+                <button onclick=updatePositions()>Actualizar Spawns Activos</button><br>
+                <button onclick=checkNearShinies()>Revisar Proximo Shiny</button><br>
+                <button onclick=trackPlayer() id="trackPlayerButton">Posición Jugador</button><br>
+                <button onclick=placeTeleport() id="placeTeleportButton">Teletransportación</button><br>
+                <label for="y">Altura Teletransportación:</label>
                 <input type="number" id="y" value=50><br>
-                <label for="rolls">Shiny Rolls:</label>
+                <label for="rolls">Lista de Shinys:</label>
                 <input type="number" id="rolls" value=1><br>
-                <label for="thresh">Near Filtered Limit</label>
+                <label for="thresh">Limite Próximo Shiny:</label>
                 <input type="number" id="thresh" value=50><br>
-                <label for="initialSpawn">Initial Spawn</label>
+                <label for="initialSpawn">Spawn Inicial:</label>
                 <input type="checkbox" id="initSpawn"><br>
-                <label for="timeSelect">Time:</label>
+                <label for="timeSelect">Tiempo:</label>
                 <select id="timeSelect" onchange="speciesSelectChanged()">
-                    <option value="Dawn">Dawn</option>
-                    <option value="Day">Day</option>
-                    <option value="Dusk">Dusk</option>
-                    <option value="Night">Night</option>
+                    <option value="Dawn">Mañana</option>
+                    <option value="Day">Mediodia</option>
+                    <option value="Dusk">Tarde</option>
+                    <option value="Night">Noche</option>
                 </select><br>
-                <label for="weatherSelect">Weather:</label>
+                <label for="weatherSelect">Clima:</label>
                 <select id="weatherSelect" onchange="speciesSelectChanged()">
-                    <option value="None">None</option>
-                    <option value="Sunny">Sunny</option>
-                    <option value="Cloudy">Cloudy</option>
-                    <option value="Rain">Rain</option>
-                    <option value="Snow">Snow</option>
-                    <option value="Drought">Drought</option>
-                    <option value="Fog">Fog</option>
-                    <option value="Rainstorm">Rainstorm</option>
-                    <option value="Snowstorm">Snowstorm</option>
+                    <option value="None">Ninguno</option>
+                    <option value="Sunny">Soleado</option>
+                    <option value="Cloudy">Nublado</option>
+                    <option value="Rain">Lluvioso</option>
+                    <option value="Snow">Nevando</option>
+                    <option value="Drought">Sequia</option>
+                    <option value="Fog">Neblina</option>
+                    <option value="Rainstorm">Tormenta</option>
+                    <option value="Snowstorm">Nevada</option>
                 </select><br>
             </div>
 
             <div class="sidebar-pane" id="mass-outbreak">
                 <h1 class="sidebar-header">
-                    Mass Outbreak Information
+                    Informacion de Apariciones Masivas
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1><br>
-                <label for="massOutbreakRolls">Shiny Rolls:</label>
+                <label for="massOutbreakRolls">Lista de Shinys:</label>
                 <input type="number" id="massOutbreakRolls" value=26><br>
 
-                <label for="noPath">Basic Pathfinding</label>
+                <label for="noPath">Busqueda Basica</label>
                 <input type="radio" id="noPath" name="pathfinding" value="noPath" onchange=updatePath() checked><br>
-                <label for="aggressivePath">Aggressive Pathfinding</label>
+                <label for="aggressivePath">Busqueda Agresiva</label>
                 <input type="radio" id="aggressivePath" name="pathfinding" value="aggressivePath" onchange=updatePath()><br>
-                <label for="passivePath">Passive Pathfinding</label>
+                <label for="passivePath">Busqueda Pacifica</label>
                 <input type="radio" id="passivePath" name="pathfinding" value="passivePath" onchange=updatePath()><br>
 
-                <label for="readSpawns">Read Spawn Count:</label>
+                <label for="readSpawns">Leer Numero de Spawns:</label>
                 <input type="checkbox" id="readSpawns" onchange=updatePath() checked><br>
-                <label for="massOutbreakSpawns" id="massOutbreakSpawnsLabel">Total Spawns:</label>
+                <label for="massOutbreakSpawns" id="massOutbreakSpawnsLabel">Spawns Totales:</label>
                 <input type="number" id="massOutbreakSpawns" value=10><br>
                 <div id="passiveMoveLimitDiv">
-                    <label for="passiveMoveLimit">Passive Move Limit:</label>
+                    <label for="passiveMoveLimit">Limite del Modo Pasivo:</label>
                     <input type="number" id="passiveMoveLimit" value=10><br>
-                    <label for="passiveFindFirst">Only Find First: </label>
+                    <label for="passiveFindFirst">Buscar Solo el Primero: </label>
                     <input type="checkbox" id="passiveFindFirst"><br>
                 </div>
 
-                <button onclick=loadMassOutbreakInfo()>Update Mass Outbreak Info</button><br><br>
-                <button type="button" class="collapsible" data-for="currentMassOutbreak" id="currentMassOutbreakButton">Current Mass Outbreak</button>
+                <button onclick=loadMassOutbreakInfo()>Actualizar informacion de Apariciones Masivas</button><br><br>
+                <button type="button" class="collapsible" data-for="currentMassOutbreak" id="currentMassOutbreakButton">Aparición Masiva Actual</button>
                 <div class="info" id="currentMassOutbreak">
-                    <b>No info present</b>
+                    <b>Información no Obtenida</b>
                 </div><br>
-                <button type="button" class="collapsible" data-for="shinyMassOutbreak" id="shinyMassOutbreakButton">Next Filtered Mass Outbreak</button>
+                <button type="button" class="collapsible" data-for="shinyMassOutbreak" id="shinyMassOutbreakButton">Siguiente Aparición Masiva Filtrada</button>
                 <div class="info" id="shinyMassOutbreak">
-                    <b>No info present</b>
+                    <b>Informacion no Obtenida</b>
                 </div>
             </div>
 
             <div class="sidebar-pane" id="battle">
                 <h1 class="sidebar-header">
-                    Battle Information
+                    Informacion de Batalla
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1><br>
-                <button onclick=loadBattleInfo()>Update Battle Info</button><br><br>
+                <button onclick=loadBattleInfo()>Actualizar Informacion de Batalla</button><br><br>
                 <div id="battleInfo"></div>
             </div>
 
             <div class="sidebar-pane" id="filter">
                 <h1 class="sidebar-header">
-                    Filter
+                    Filtrar
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1><br>
-                <label for="shinyFilter">Shiny Only:</label>
+                <label for="shinyFilter">Shiny:</label>
                 <input type="checkbox" id="shinyFilterCheck" checked=true><br>
-                <label for="outbreakAlphaFilter">Alpha (Outbreak) Filter:</label>
+                <label for="outbreakAlphaFilter">Pokémon Alfa:</label>
                 <input type="checkbox" id="outbreakAlphaFilter" onclick="toggleSlotFilter()"><br>
-                <label for="slotFilterCheck">Encounter Slot Filter:</label>
+                <label for="slotFilterCheck">Ranura de Encuentro:</label>
                 <input type="checkbox" id="slotFilterCheck" onclick="toggleSlotFilter()"><br>
-                <label for="slotTotal">Slot Total:</label>
+                <label for="slotTotal">Ranuras Totales:</label>
                 <input style="width:30%" type="number" id="slotTotal" value=101><br>
-                <label for="minSlotFilter">Slot:</label>
+                <label for="minSlotFilter">Ranura:</label>
                 <input class="unlocked" style="width:30%" type="number" id="minSlotFilter" value=0>
                 <b>~</b>
                 <input class="unlocked" style="width:30%" type="number" id="maxSlotFilter" value=101><br>
-                <label for="filterSpeciesCheck">Filter by Species:</label>
+                <label for="filterSpeciesCheck">Filtrar por Pokémon:</label>
                 <input type="checkbox" id="filterSpeciesCheck" onclick="toggleSlotFilter()" onchange="speciesSelectChanged()"><br>
-                <label for="speciesSelect">Species:</label>
+                <label for="speciesSelect">Pokémon:</label>
                 <select id="speciesSelect" onchange="speciesSelectChanged()"></select><br>
-                <label for="possibleSpawners">Possible Spawners for Species:</label><br>
+                <label for="possibleSpawners">Posibles Spawns:</label><br>
                 <div id="possibleSpawners"></div>
             </div>
         </div>
@@ -557,23 +557,23 @@
             if (tracking) {
                 player_marker.remove();
                 clearInterval(positionUpdater);
-                document.getElementById("trackPlayerButton").textContent = "Track Player Position";
+                document.getElementById("trackPlayerButton").textContent = "Posición Jugador";
                 tracking = false;
             }
             else {
                 positionUpdater = setInterval(readPlayerCoords,2500);
-                document.getElementById("trackPlayerButton").textContent = "Stop Tracking";
+                document.getElementById("trackPlayerButton").textContent = "Cancelar Seguimiento";
                 tracking = true;
             }
         }
         function placeTeleport() {
             if (teleporting) {
                 teleporting = false;
-                document.getElementById("placeTeleportButton").textContent = "Teleport";
+                document.getElementById("placeTeleportButton").textContent = "Teletransportacion";
             }
             else {
                 teleporting = true;
-                document.getElementById("placeTeleportButton").textContent = "Cancel Teleport";
+                document.getElementById("placeTeleportButton").textContent = "Cancelar Teletransportacion";
             }
         }
         function teleportPopup() {
